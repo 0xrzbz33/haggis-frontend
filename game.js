@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitScore = (score) => {
         const username = new URLSearchParams(window.location.search).get("username") || "Unknown";
 
-        fetch("http://localhost:3000/api/scores", {
+        fetch("https://haggis-backend.onrender.com/api/scores", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name: username, score }),
