@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #87CEEB, #FFFFFF); /* Dégradé bleu ciel */
+    color: #333;
+}
+
+canvas {
+    display: block;
+    margin: 20px auto;
+    border: 2px solid #4CAF50; /* Bordure verte */
+    border-radius: 10px; /* Coins arrondis */
+    background: linear-gradient(to bottom, #e6ffe6, #ffffff); /* Dégradé vert clair */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+}
+
+#leaderboard {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 1px solid #ddd; /* Bordure discrète */
+    border-radius: 10px; /* Coins arrondis */
+    background-color: #ffffff; /* Fond blanc */
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre légère */
+    color: #333;
+    animation: fadeIn 1s ease-in-out; /* Animation d'apparition */
+}
+
+#leaderboard h3 {
+    font-size: 22px;
+    color: #4CAF50; /* Couleur verte */
+    margin-bottom: 10px;
+}
+
+#leaderboard div {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #555; /* Texte en gris */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px); /* Effet de translation verticale */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.score-display {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    color: #ffffff; /* Texte blanc */
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+}
+
+#restart-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Vert pour le bouton */
+    color: white; /* Texte blanc */
+    border: none;
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transition de la couleur */
+}
+
+#restart-btn:hover {
+    background-color: #45a049; /* Couleur légèrement plus foncée au survol */
+}
