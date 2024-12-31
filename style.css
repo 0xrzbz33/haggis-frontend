@@ -4,20 +4,29 @@ body {
     padding: 0;
     background: linear-gradient(to bottom, #87CEEB, #FFFFFF); /* Dégradé bleu ciel */
     color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre horizontalement le contenu */
+    justify-content: flex-start; /* Aligne les éléments en haut */
 }
 
+/* Canvas pour le jeu */
 canvas {
     display: block;
-    margin: 20px auto;
+    margin: 20px 0; /* Espacement en haut et en bas */
     border: 2px solid #4CAF50; /* Bordure verte */
     border-radius: 10px; /* Coins arrondis */
     background: linear-gradient(to bottom, #e6ffe6, #ffffff); /* Dégradé vert clair */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+    max-width: 90%; /* Limite la largeur sur petits écrans */
+    height: auto; /* Maintient les proportions */
 }
 
+/* Leaderboard sous le jeu */
 #leaderboard {
     max-width: 300px;
-    margin: 20px auto;
+    width: 90%; /* Adaptabilité pour les petits écrans */
+    margin: 20px 0; /* Espacement au-dessus et en dessous */
     padding: 15px;
     border: 1px solid #ddd; /* Bordure discrète */
     border-radius: 10px; /* Coins arrondis */
@@ -51,6 +60,7 @@ canvas {
     }
 }
 
+/* Score affiché dans le coin supérieur gauche */
 .score-display {
     position: absolute;
     top: 20px;
@@ -64,6 +74,7 @@ canvas {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
 }
 
+/* Bouton restart */
 #restart-btn {
     display: block;
     margin: 20px auto;

@@ -10,9 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
     adjustCanvasSize();
     window.addEventListener("resize", adjustCanvasSize); // Réajuster si la fenêtre est redimensionnée
 
-    document.body.appendChild(canvas);
+    const gameContainer = document.createElement("div");
+    gameContainer.style.display = "flex";
+    gameContainer.style.flexDirection = "column";
+    gameContainer.style.alignItems = "center";
+    document.body.appendChild(gameContainer);
+
+    gameContainer.appendChild(canvas);
 
     const leaderboardDiv = document.getElementById("leaderboard");
+    gameContainer.appendChild(leaderboardDiv);
 
     // Fonction pour récupérer le leaderboard
     const fetchLeaderboard = () => {

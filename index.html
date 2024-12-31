@@ -9,21 +9,22 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centre horizontalement le contenu */
         }
-        #leaderboard {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: white;
-            padding: 10px;
-            border: 1px solid black;
-            max-width: 200px;
+        canvas {
+            margin: 20px 0; /* Ajoute un espace autour du canvas */
         }
     </style>
 </head>
 <body>
-    <!-- Leaderboard intégré dans le corps de la page -->
+    <!-- Canvas du jeu -->
+    <canvas></canvas>
+
+    <!-- Leaderboard placé sous le canvas -->
     <div id="leaderboard"></div>
+    
     <!-- Inclusion du script de jeu -->
     <script src="game.js"></script>
 </body>
