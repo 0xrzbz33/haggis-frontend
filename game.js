@@ -2,8 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.createElement("canvas");
     const context = canvas.getContext("2d");
 
-    canvas.width = 800;
-    canvas.height = 400;
+    // Ajuster la taille du canvas en fonction de l'écran
+    const adjustCanvasSize = () => {
+        canvas.width = window.innerWidth * 0.9; // 90% de la largeur de l'écran
+        canvas.height = window.innerHeight * 0.6; // 60% de la hauteur de l'écran
+    };
+    adjustCanvasSize();
+    window.addEventListener("resize", adjustCanvasSize); // Réajuster si la fenêtre est redimensionnée
+
     document.body.appendChild(canvas);
 
     const leaderboardDiv = document.getElementById("leaderboard");
@@ -61,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     eagleImg.src = "eagle.png";
 
     // Variables du jeu
-    const groundHeight = 350;
+    const groundHeight = canvas.height - 50; // Ajuster la hauteur du sol en fonction du canvas
     let haggis = {
         x: 100,
         y: groundHeight - 70,
@@ -147,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             context.font = "24px 'Arial', sans-serif";
             context.fillStyle = "white";
-            context.fillText("Click to Restart", canvas.width / 2, canvas.height / 2 + 30);
+            context.fillText("Tap or Click to Restart", canvas.width / 2, canvas.height / 2 + 30);
             context.shadowBlur = 0;
         }
     };
@@ -284,6 +290,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (e.code === "Space") {
             haggis.jumpHold = false;
         }
+    });
+
+    // Gérer les événements tactiles pour mobile
+    canvas.addEventListener("touchstart", () => {
+        if (!haggis.jumping && !gameOver) {
+            haggis.velocityY = jumpStrength;
+            haggis.jumping = true;
+            haggis.jumpHold = true;
+        }
+    });
+
+    canvas.addEventListener("touchend", () => {
+        haggis.jumpHold = false;
     });
 
     canvas.addEventListener("click", () => {
