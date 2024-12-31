@@ -95,12 +95,3 @@ canvas {
 #restart-btn:hover {
     background-color: #45a049; /* Couleur légèrement plus foncée au survol */
 }
-
-/* Empêche la sélection sur mobile */
-canvas {
-    -webkit-touch-callout: none; /* Désactiver le menu contextuel */
-    -webkit-user-select: none; /* Désactiver la sélection */
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
