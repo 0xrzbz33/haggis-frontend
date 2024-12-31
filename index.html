@@ -8,19 +8,43 @@
     <style>
         body {
             margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center; /* Centrer les éléments horizontalement */
+            justify-content: flex-start; /* Commencer en haut de la page */
+            background: linear-gradient(to bottom, #87CEEB, #FFFFFF); /* Dégradé bleu ciel */
         }
         canvas {
             max-width: 90%; /* S'adapte aux petits écrans */
             height: auto; /* Garde les proportions */
+            border: 2px solid #4CAF50; /* Bordure verte */
+            border-radius: 10px; /* Coins arrondis */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
         }
         #leaderboard {
             width: 90%; /* S'assure que le leaderboard est centré et adaptatif */
             max-width: 300px;
             margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd; /* Bordure discrète */
+            border-radius: 10px; /* Coins arrondis */
+            background-color: #ffffff; /* Fond blanc */
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre légère */
+            color: #333;
+            animation: fadeIn 1s ease-in-out; /* Animation d'apparition */
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px); /* Effet de translation verticale */
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
