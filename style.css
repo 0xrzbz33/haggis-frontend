@@ -7,6 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centrer horizontalement */
+    justify-content: flex-start; /* Commencer en haut de la page */
 }
 
 /* Canvas pour le jeu */
