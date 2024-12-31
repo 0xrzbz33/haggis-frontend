@@ -12,7 +12,7 @@ body {
 /* Canvas pour le jeu */
 canvas {
     display: block;
-    margin: 20px 0; /* Ajusté pour espacement */
+    margin: 0 auto 20px; /* Espacement uniquement en bas */
     border: 2px solid #4CAF50; /* Bordure verte */
     border-radius: 10px; /* Coins arrondis */
     background: linear-gradient(to bottom, #e6ffe6, #ffffff); /* Dégradé vert clair */
@@ -30,7 +30,7 @@ canvas {
 #leaderboard {
     width: 90%;
     max-width: 300px;
-    margin: 20px 0; /* Espacement */
+    margin: 0 auto 20px; /* Centrer horizontalement et espacement en bas */
     padding: 15px;
     border: 1px solid #ddd; /* Bordure discrète */
     border-radius: 10px; /* Coins arrondis */
