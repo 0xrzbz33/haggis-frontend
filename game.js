@@ -10,16 +10,24 @@ document.addEventListener("DOMContentLoaded", () => {
     adjustCanvasSize();
     window.addEventListener("resize", adjustCanvasSize); // Réajuster si la fenêtre est redimensionnée
 
+    // Conteneur principal pour centrer les éléments
     const gameContainer = document.createElement("div");
     gameContainer.style.display = "flex";
     gameContainer.style.flexDirection = "column";
     gameContainer.style.alignItems = "center";
+    gameContainer.style.margin = "0";
+    gameContainer.style.padding = "0";
+    document.body.style.margin = "0"; // Supprime tout espace extérieur au body
+    document.body.style.padding = "0";
+
     document.body.appendChild(gameContainer);
 
     gameContainer.appendChild(canvas);
 
     const leaderboardDiv = document.getElementById("leaderboard");
-    gameContainer.appendChild(leaderboardDiv);
+    if (leaderboardDiv) {
+        gameContainer.appendChild(leaderboardDiv);
+    }
 
     // Fonction pour récupérer le leaderboard
     const fetchLeaderboard = () => {
@@ -168,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const update = () => {
         if (gameOver) return;
 
-        // Gravité et gestion du saut maintenu
         if (haggis.jumping) {
             if (haggis.jumpHold && haggis.jumpDuration < maxJumpHoldDuration) {
                 haggis.velocityY += -0.5;
@@ -180,18 +187,15 @@ document.addEventListener("DOMContentLoaded", () => {
         haggis.y += haggis.velocityY;
         haggis.velocityY += gravity;
 
-        // Empêcher Haggis de descendre sous le sol
         if (haggis.y > groundHeight - haggis.height) {
             haggis.y = groundHeight - haggis.height;
             haggis.jumping = false;
             haggis.jumpDuration = 0;
         }
 
-        // Déplacer les obstacles
         for (let obs of obstacles) {
             obs.x -= gameSpeed;
 
-            // Vérifier la collision
             const hitboxPadding = 10;
             if (
                 haggis.x + hitboxPadding < obs.x + obs.width &&
@@ -206,10 +210,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Supprimer les obstacles hors écran
         obstacles = obstacles.filter(obs => obs.x + obs.width > 0);
 
-        // Ajouter des obstacles
         if (obstacleSpawnDelay <= 0) {
             const obstacleCount = Math.floor(Math.random() * 2) + 2;
             const minSpacing = 20;
@@ -252,7 +254,6 @@ document.addEventListener("DOMContentLoaded", () => {
             obstacleSpawnDelay--;
         }
 
-        // Augmenter le score
         score++;
 
         if (score % 100 === 0) {
@@ -299,7 +300,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Gérer les événements tactiles pour mobile
     canvas.addEventListener("touchstart", () => {
         if (!haggis.jumping && !gameOver) {
             haggis.velocityY = jumpStrength;
