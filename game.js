@@ -4,8 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Ajuster la taille du canvas en fonction de l'écran
     const adjustCanvasSize = () => {
-        canvas.width = window.innerWidth * 0.9; // 90% de la largeur de l'écran
-        canvas.height = window.innerHeight * 0.6; // 60% de la hauteur de l'écran
+        const aspectRatio = 2; // Largeur/hauteur typique pour ce type de jeu
+        canvas.width = Math.min(window.innerWidth * 0.9, 800); // Largeur max de 800px
+        canvas.height = canvas.width / aspectRatio; // Ajuste la hauteur proportionnellement
     };
     adjustCanvasSize();
     window.addEventListener("resize", adjustCanvasSize); // Réajuster si la fenêtre est redimensionnée
