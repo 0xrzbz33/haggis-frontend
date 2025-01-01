@@ -8,6 +8,11 @@ body {
     flex-direction: column;
     align-items: center; /* Centre horizontalement le contenu */
     justify-content: flex-start; /* Aligne les éléments en haut */
+    -webkit-user-select: none; /* Désactive la sélection de texte */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: manipulation; /* Désactive le comportement par défaut des interactions tactiles */
 }
 
 /* Canvas pour le jeu */
@@ -20,6 +25,10 @@ canvas {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
     max-width: 90%; /* Limite la largeur sur petits écrans */
     height: auto; /* Maintient les proportions */
+    -webkit-user-select: none; /* Empêche la sélection sur le canvas */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Leaderboard sous le jeu */
@@ -35,6 +44,10 @@ canvas {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre légère */
     color: #5a4033; /* Texte marron foncé */
     animation: fadeIn 1s ease-in-out; /* Animation d'apparition */
+    -webkit-user-select: none; /* Empêche la sélection sur le leaderboard */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #leaderboard h3 {
@@ -72,6 +85,10 @@ canvas {
     font-weight: bold;
     border-radius: 5px; /* Coins arrondis */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
+    -webkit-user-select: none; /* Empêche la sélection sur le score */
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* Bouton restart */
